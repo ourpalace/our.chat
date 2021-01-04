@@ -1,0 +1,26 @@
+  
+{
+    "env": {
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "linebreak-style": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "no-tabs": "off",
+        "max-len": "off",
+        "new-cap": "off",
+        "quotes": "off"
+    }
+}
