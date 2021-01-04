@@ -1,4 +1,3 @@
-export * from './CacheUser'
 export * from './Embed'
 export * from './Message'
 export * from './Ready'
