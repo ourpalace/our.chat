@@ -1,12 +1,10 @@
-import {User} from "../structs";
-
 export class Collection {
-    raw: Array<User>
+    raw: Array<any>
     constructor() {
         this.raw = [];
     }
-    set(user: User) {
-        this.raw.push(user)
+    add(data: any) {
+        this.raw.push(data)
         return this;
     }
     get(id: String) {
