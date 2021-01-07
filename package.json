@@ -1,13 +1,34 @@
 {
-    "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.10.0",
-        "@typescript-eslint/parser": "^4.10.0",
-        "eslint": "^7.16.0",
-        "typescript": "^4.1.3"
-    },
-    "dependencies": {
-        "@types/ws": "^7.4.0",
-        "pako": "^2.0.2",
-        "ws": "^7.4.2"
-    }
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "typescript": "^4.1.3",
+    "@types/ws": "^7.4.0"
+  },
+  "dependencies": {
+    "pako": "^2.0.2",
+    "ws": "^7.4.2"
+  },
+  "name": "our.chat",
+  "version": "0.0.0",
+  "description": "A library for veld.chat",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ourpalace/our.chat.git"
+  },
+  "keywords": [
+    "chat",
+    "library"
+  ],
+  "author": "Matthew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ourpalace/our.chat/issues"
+  },
+  "homepage": "https://github.com/ourpalace/our.chat#readme"
 }

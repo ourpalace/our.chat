@@ -2,7 +2,7 @@ import {EventEmitter} from 'events';
 import ws from 'ws'
 import {handleMessage} from './handlers';
 import {Login, User} from './structs/';
-import {Collection, heartbeat} from './private_utils';
+import {Collection, heartbeat} from './utils';
 
 export class Client extends EventEmitter {
     ws: ws
