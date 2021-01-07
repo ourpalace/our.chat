@@ -1,3 +1,3 @@
-export * from './packet'
-export * from './collection'
-export * from './heartbeat'
+export * from './private/packet'
+export * from './public/collection'
+export * from './private/heartbeat'

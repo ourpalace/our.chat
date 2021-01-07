@@ -1,5 +1,5 @@
 import {Client} from "..";
-import {Collection} from "../private_utils"
+import {Collection} from "../utils"
 export class Cache {
     constructor(client) {
         this._init(client)

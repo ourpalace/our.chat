@@ -7,9 +7,8 @@ import {Collection, heartbeat} from './utils';
 export class Client extends EventEmitter {
     ws: ws
     token: String
-    users: Collection
+    users: Collection<String, User>
     user: User
-    channels: Collection
     private connected: Boolean
     private heartbeat: any
     constructor () {
