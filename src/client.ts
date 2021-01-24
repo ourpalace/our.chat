@@ -1,13 +1,15 @@
 import {EventEmitter} from 'events';
 import ws from 'ws'
 import {handleMessage} from './handlers';
-import {Login, User} from './structs/';
+import {Login, User, Presence, Channel} from './structs/';
 import {Collection, heartbeat} from './utils';
 
 export class Client extends EventEmitter {
     ws: ws
     token: String
     users: Collection<String, User>
+    statuses: Collection<String, Presence>
+    channels: Collection<String, Channel>
     user: User
     private connected: Boolean
     private heartbeat: any
@@ -18,6 +20,7 @@ export class Client extends EventEmitter {
         this.ws = new ws('wss://api.veld.chat')
         this.ws.on('open', () => {
             if (this.connected) return;
+            this.token = token;
             const loginObj: Login = {
                 token,
                 bot: true

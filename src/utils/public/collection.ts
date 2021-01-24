@@ -17,6 +17,10 @@ export class Collection<key, val> extends Map<key, val> {
         this.keyArr = []
     }
 
+    arr() {
+        return this.valArr;
+    }
+
     find(func: (value) => Boolean) {
         for (const val in this.valArr) {
             if (func(val)) return val
