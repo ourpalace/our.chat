@@ -15,6 +15,9 @@ export class Client extends EventEmitter {
     private heartbeat: any
     constructor () {
         super();
+        this.users = new Collection()
+        this.statuses = new Collection()
+        this.channels = new Collection()
     }
     connect(token: String) {
         this.ws = new ws('wss://api.veld.chat')
@@ -31,7 +34,7 @@ export class Client extends EventEmitter {
                 d: loginObj
             })
             this.ws.send(loginStr)
-            this.ws.on('error', (err) => {this.emit('debug', `[Websocket error] ${err}`); this.ws.close()})
+            this.ws.on('error', (err) => {this.emit('debug', `[Websocket error] ${err}`); this.ws.close(); this.connect(this.token)})
             this.ws.on('close', (code) => {this.emit('debug', `[Websocket closed] Error code: ${code}`);this.connected = false;delete this.heartbeat;this.connect(this.token);})
             this.ws.on('message', (message: any, flag: any) => {handleMessage(message, flag, this)})
         })

@@ -1,5 +1,5 @@
 import { Client } from "..";
-import { MessageOptions } from "./Message";
+import { Message, MessageOptions } from "./Message";
 import fetch from 'node-fetch';
 
 export interface RawChannel {
@@ -23,11 +23,22 @@ export class Channel {
         return {
             id: channel.id,
             name: channel.name,
-            send: async function(content) {
+            send: async function(content, embed?) {
                 const opts: MessageOptions = {}
-                if (typeof content == 'object') opts.embed = content
-                else opts.content = content 
-                await _request("POST", `channels/${channel.id}/messages`, opts) 
+                if (content && embed) {
+                    if(typeof content == 'string') {
+                        opts.content = content
+                    } else if (typeof content == 'object') {
+                        opts.embed = content
+                    } else if (typeof content == 'string' && typeof embed == 'object') {
+                        opts.content = content
+                        opts.embed = embed
+                    }
+                } else if (typeof content == 'object') opts.embed = content
+                else if (typeof content == 'string') opts.content = content 
+                if (!opts.embed && !opts.content) throw new Error('[RESTAPI/Messages] - No content/embed provided')
+                const rawMsg = await _request("POST", `channels/${channel.id}/messages`, opts).then(g => g.json())
+                return new Message(client, rawMsg)
             }
         };
     }
